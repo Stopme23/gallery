@@ -1,28 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Осенняя галерея</title>
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
 </head>
 <body>
     <div class="container">
-        <h1 class="caption">Моя первая галерея</h1>
-        <div class="gallery">
-            <div class="gallery__item">
-                <img class="gallery__item-img" src="img/images.jpg" alt="autmn">
-                <p>Осень прекрасна</p>
-            </div>
-            <div class="gallery__item">
-                <img class="gallery__item-img" src="img/images.jpg" alt="autmn">
-                <p>Осень прекрасна</p>
-            </div>
-            <div class="gallery__item">
-                <img class="gallery__item-img" src="img/images.jpg" alt="autmn">
-                <p>Осень прекрасна</p>
-            </div>
-        </div>
+        <header class="header">
+            <h1 class="caption">Моя первая галерея</h1>
+            <p class="subtitle">Тыквы, книги и листопад</p>
+        </header>
+
+        <main class="gallery">
+            <figure class="gallery__item">
+                <a href="#photo-1"><img class="gallery__item-img" src="img/images.jpg" alt="Осенний натюрморт целиком"></a>
+                <figcaption>Осень прекрасна</figcaption>
+            </figure>
+            <figure class="gallery__item">
+                <a href="#photo-2"><img class="gallery__item-img gallery__item-img--zoom" style="--pos: 38% 25%" src="img/images.jpg" alt="Большая оранжевая тыква"></a>
+                <figcaption>Главная тыква сезона</figcaption>
+            </figure>
+            <figure class="gallery__item">
+                <a href="#photo-3"><img class="gallery__item-img gallery__item-img--zoom" style="--pos: 55% 60%" src="img/images.jpg" alt="Стопка книг с кленовым листом"></a>
+                <figcaption>Время читать</figcaption>
+            </figure>
+            <figure class="gallery__item">
+                <a href="#photo-4"><img class="gallery__item-img gallery__item-img--zoom" style="--pos: 92% 75%" src="img/images.jpg" alt="Жёлтые декоративные тыквы"></a>
+                <figcaption>Жёлтые малыши</figcaption>
+            </figure>
+            <figure class="gallery__item">
+                <a href="#photo-5"><img class="gallery__item-img gallery__item-img--zoom" style="--pos: 12% 68%" src="img/images.jpg" alt="Маленькие тыквы в листве"></a>
+                <figcaption>В опавшей листве</figcaption>
+            </figure>
+            <figure class="gallery__item">
+                <a href="#photo-6"><img class="gallery__item-img sepia" src="img/images.jpg" alt="Натюрморт в тёплых тонах"></a>
+                <figcaption>Тёплые воспоминания</figcaption>
+            </figure>
+        </main>
+
+        <footer class="footer">© 2026 Осенняя галерея</footer>
     </div>
+
+    <!-- Лайтбокс на чистом CSS (:target), закрывается кликом -->
+    <a href="#" class="lightbox" id="photo-1"><img src="img/images.jpg" alt="Осенний натюрморт целиком"></a>
+    <a href="#" class="lightbox" id="photo-2"><img src="img/images.jpg" alt="Большая оранжевая тыква"></a>
+    <a href="#" class="lightbox" id="photo-3"><img src="img/images.jpg" alt="Стопка книг с кленовым листом"></a>
+    <a href="#" class="lightbox" id="photo-4"><img src="img/images.jpg" alt="Жёлтые декоративные тыквы"></a>
+    <a href="#" class="lightbox" id="photo-5"><img src="img/images.jpg" alt="Маленькие тыквы в листве"></a>
+    <a href="#" class="lightbox" id="photo-6"><img class="sepia" src="img/images.jpg" alt="Натюрморт в тёплых тонах"></a>
 </body>
 </html>

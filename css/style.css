@@ -1,34 +1,140 @@
-*{
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-.container{
-    width: 80%;
+:root {
+    --bg: #fdf6ec;
+    --card: #ffffff;
+    --text: #4a3426;
+    --accent: chocolate;
+    --shadow: 0 4px 14px rgba(120, 60, 20, 0.15);
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 20px 0 40px;
 }
 
-.caption{
-    color: chocolate;
+.header {
     text-align: center;
-    font-size: 40px;
-    margin: 20px 0;
+    margin: 20px 0 30px;
 }
 
-.gallery{
+.caption {
+    color: var(--accent);
+    font-size: clamp(28px, 5vw, 44px);
+}
+
+.subtitle {
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.gallery__item {
+    background: var(--card);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery__item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(120, 60, 20, 0.25);
+}
+
+.gallery__item a {
+    display: block;
+    overflow: hidden;
+}
+
+.gallery__item-img {
+    --pos: 50% 50%;
+    --zoom: 1;
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: var(--pos);
+    transform-origin: var(--pos);
+    transform: scale(var(--zoom));
+    transition: transform 0.4s;
+}
+
+/* Крупный план фрагмента фото */
+.gallery__item-img--zoom {
+    --zoom: 1.9;
+}
+
+.gallery__item:hover .gallery__item-img {
+    transform: scale(calc(var(--zoom) * 1.08));
+}
+
+.sepia {
+    filter: sepia(0.7);
+}
+
+.gallery__item figcaption {
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* Лайтбокс */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    cursor: zoom-out;
+}
+
+.lightbox:target {
     display: flex;
-    justify-content: space-around;
 }
 
-.gallery__item-img{
-    width: 350px;
-    margin-top: 25px;
+.lightbox img {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 8px;
 }
 
-@media screen and (max-width:393px) {
+@media screen and (max-width: 393px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
 
-    .gallery{
-        flex-direction: column;
-        align-items: center;
+    .gallery__item figcaption {
+        font-size: 16px;
     }
 }
